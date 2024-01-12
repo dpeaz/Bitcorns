@@ -22,7 +22,7 @@ function afterRender(state) {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
 
-  if (state.view === "Order") {
+  if (state.view === "Bitmap") {
     // Add an event handler for the submit button on the form
     document.querySelector("form").addEventListener("submit", event => {
       event.preventDefault();
@@ -30,9 +30,6 @@ function afterRender(state) {
       // Get the form element
       const inputList = event.target.elements;
       console.log("Input Element List", inputList);
-
-      // Create an empty array to hold the toppings
-      const toppings = [];
 
       // Iterate over the toppings array
 
@@ -55,16 +52,16 @@ function afterRender(state) {
       console.log("request Body", requestData);
 
       axios
-        // Make a POST request to the API to create a new pizza
-        .post(`${process.env.PIZZA_PLACE_API_URL}/pizzas`, requestData)
+        // Make a POST request to the API to look up Bitmap attributes
+        .post(`${process.env.MAGICEDEN_API}/bitmap`, requestData)
         .then(response => {
-          //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
-          store.Pizza.pizzas.push(response.data);
-          router.navigate("/Pizza");
+          //  Then use returned attributes to get Magic Eden floor price for each trait
+          store.Bitmap.bitmap.push(response.data);
+          router.navigate("/Bitmap");
         })
         // If there is an error log it to the console
         .catch(error => {
-          console.log("It puked", error);
+          console.log("Error!", error);
         });
     });
   }
@@ -72,53 +69,6 @@ function afterRender(state) {
 
 router.hooks({
   before: (done, params) => {
-    const view =
-      params && params.data && params.data.view
-        ? capitalize(params.data.view)
-        : "Home";
-
-    // Add a switch case statement to handle multiple routes
-    switch (view) {
-      case "Home":
-        axios
-          .get(
-            `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=st%20louis`
-          )
-          .then(response => {
-            const kelvinToFahrenheit = kelvinTemp =>
-              Math.round((kelvinTemp - 273.15) * (9 / 5) + 32);
-
-            store.Home.weather = {
-              city: response.data.name,
-              temp: kelvinToFahrenheit(response.data.main.temp),
-              feelsLike: kelvinToFahrenheit(response.data.main.feels_like),
-              description: response.data.weather[0].main
-            };
-            done();
-          })
-          .catch(err => {
-            console.log(err);
-            done();
-          });
-        break;
-      // Added in Lesson 7.1
-      case "Pizza":
-        axios
-          .get(`${process.env.PIZZA_PLACE_API_URL}/pizzas`)
-          .then(response => {
-            store.Pizza.pizzas = response.data;
-            done();
-          })
-          .catch(error => {
-            console.log("It puked", error);
-            done();
-          });
-        break;
-      default:
-        done();
-    }
-  },
-  already: params => {
     const view =
       params && params.data && params.data.view
         ? capitalize(params.data.view)
