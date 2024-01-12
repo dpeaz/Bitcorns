@@ -15,8 +15,8 @@ export default () => html`
 </p>
 <h2>Our Vision</h2>
 <p>We believe that Bitcoin and Ordinals should (and can) be fun and profitable while fostering a
-  strong community where holders help one another instead of creating a PvP environment.</p>
-  <p>
+  strong community where holders help one another instead of creating a PvP environment.
+  <br>
     We aim to achieve fun through creating funny, engaging content as well as producing sporadic,
     meaningful Ordinals collections and community events.  We believe that remaining active daily
     in the community, providing value, and treating people with respect and dignity is the best way

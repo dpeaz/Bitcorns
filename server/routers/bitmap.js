@@ -1,17 +1,24 @@
 import { Router } from "express";
-import Bitmap from "../models/bitmap.js";
+import Bitmap from "../models/Bitmap.js";
+import axios from "axios";
 
 const router = Router();
 
 router.post("/", async (request, response) => {
   try {
-    const newBitmap = new Bitmap(request.body);
+    const newLookup = new Bitmap(request.body);
 
-    const data = await newBitmap.save();
+    const tokenId = request.body.tokenId;
 
-    response.json(data);
+    const traits = await axios.get(
+      `https://api-mainnet.magiceden.dev/v2/ord/btc/activities?collectionSymbol=bitmap&kind=transfer&tokenId=${tokenId}`
+    );
+
+    response.json({
+      postData: newLookup,
+      traits: traits.data
+    });
   } catch (error) {
-    // Output error to the console incase it fails to send in response
     console.log(error);
 
     if ("name" in error && error.name === "ValidationError")
@@ -20,13 +27,5 @@ router.post("/", async (request, response) => {
     return response.status(500).json(error.errors);
   }
 });
-
-async function fetchBitmapTokenInfo() {
-  const response = await fetch(
-    "https://api-mainnet.magiceden.io/v2/ord/btc/activities?limit=20&offset=0&kind[]=buying_broadcasted&kind[]=mint_broadcasted&kind[]=list&kind[]=delist&kind[]=create&kind[]=transfer&kind[]=offer_placed&kind[]=offer_cancelled&kind[]=offer_accepted_broadcasted&tokenId="
-  );
-  const data = await response.json();
-  return data;
-}
 
 export default router;

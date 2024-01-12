@@ -1,15 +1,34 @@
 body {
         min-height: 100vh;
-        background: #52B765;
+        /* background: #52B765;
         background: -moz-radial-gradient(center, #52B765 0%, #3B8449 0%, #19381F 100%);
         background: -webkit-radial-gradient(center, #52B765 0%, #3B8449 0%, #19381F 100%);
-        background: radial-gradient(ellipse at center, #52B765 0%, #3B8449 0%, #19381F 100%);
-        color: #EEE82C;
+        background: radial-gradient(ellipse at center, #52B765 0%, #3B8449 0%, #19381F 100%); */
+        /* color: #EEE82C; */
+        color: #19381F;
+        background-image: url(BITCORNBG.webp);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
         font-family: 'Arvo', serif;
       }
 
+  p {
+  width: 60%;
+  font-weight: bold;
+  background-color: #EEE820;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  }
+
+h2 {
+  display: flex;
+  justify-content: flex-start;
+}
+
   .navbar a {
-    color: #FFFFFF;
+    color: #EEE820;
     text-decoration: none;
     font-size: medium;
     font-weight: 700;
@@ -65,15 +84,17 @@ body {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  margin-top: 125px;
-  gap: 10px;
+  margin-top: 50px;
+  gap: 5px;
 }
 
 .bitcorn {
   width: 13em;
   height: 13em;
-  margin-left: 60px;
   border: 3px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .footer {
@@ -81,12 +102,10 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 150px;
+  font-weight: bold;
 }
 
 #form.bitmap input[type="search"] {
   width: 300px;
 }
 
-p {
-  width: 75%;
-}

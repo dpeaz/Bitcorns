@@ -7,11 +7,11 @@ export default () => html`
 <section>
 <div class="main-content">
 <h1>Bitcorns</h1>
+<img src="${bitcorn001}" alt="" class="bitcorn" width="250" height="250" />
 <h2>Our Vision</h2>
-<img src="${bitcorn001}" alt="" width="250" height="250" />
 <p>We believe that Bitcoin and Ordinals should (and can) be fun and profitable while fostering a
-  strong community where holders help one another instead of creating a PvP environment.</p>
-  <p>
+  strong community where holders help one another instead of creating a PvP environment.
+<br><br>
     We aim to achieve fun through creating funny, engaging content as well as producing sporadic,
     meaningful Ordinals collections and community events.  We believe that remaining active daily
     in the community, providing value, and treating people with respect and dignity is the best way
