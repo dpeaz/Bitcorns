@@ -28,34 +28,17 @@ function afterRender(state) {
       event.preventDefault();
 
       // Get the form element
-      const inputList = event.target.elements;
-      console.log("Input Element List", inputList);
-
-      // Iterate over the toppings array
-
-      for (let input of inputList.toppings) {
-        // If the value of the checked attribute is true then add the value to the toppings array
-        if (input.checked) {
-          toppings.push(input.value);
-        }
-      }
-
+      const inputOne = event.target.elements.tokenId.value;
+      console.log("Input One", inputOne);
       // Create a request body object to send to the API
-      const requestData = {
-        customer: inputList.customer.value,
-        crust: inputList.crust.value,
-        cheese: inputList.cheese.value,
-        sauce: inputList.sauce.value,
-        toppings: toppings
-      };
-      // Log the request body to the console
-      console.log("request Body", requestData);
 
       axios
         // Make a POST request to the API to look up Bitmap attributes
-        .post(`${process.env.MAGICEDEN_API}/bitmap`, requestData)
+        // https://api-mainnet.magiceden.dev/v2/ord/btc/activities?collectionSymbol=bitmap&kind=transfer&tokenId=28c7b6e206d74172182f1bf5dc0ddfeb4e3d6fc3996964a4f973e6c21fac943bi0
+        .get(`${process.env.BITCORNS_API_URL}/bitmaps/${inputOne}`)
         .then(response => {
           //  Then use returned attributes to get Magic Eden floor price for each trait
+          console.log(response.data);
           store.Bitmap.bitmap.push(response.data);
           router.navigate("/Bitmap");
         })
@@ -69,6 +52,13 @@ function afterRender(state) {
 
 router.hooks({
   before: (done, params) => {
+    const view =
+      params && params.data && params.data.view
+        ? capitalize(params.data.view)
+        : "Home";
+    done();
+  },
+  already: params => {
     const view =
       params && params.data && params.data.view
         ? capitalize(params.data.view)

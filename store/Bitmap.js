@@ -1,4 +1,5 @@
 export default {
   header: "Bitmap",
-  view: "Bitmap"
+  view: "Bitmap",
+  bitmap: []
 };
