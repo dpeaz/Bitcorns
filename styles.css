@@ -1,10 +1,5 @@
 body {
         min-height: 100vh;
-        /* background: #52B765;
-        background: -moz-radial-gradient(center, #52B765 0%, #3B8449 0%, #19381F 100%);
-        background: -webkit-radial-gradient(center, #52B765 0%, #3B8449 0%, #19381F 100%);
-        background: radial-gradient(ellipse at center, #52B765 0%, #3B8449 0%, #19381F 100%); */
-        /* color: #EEE82C; */
         color: #19381F;
         background-image: url(BITCORNBG.webp);
         background-size: cover;
@@ -105,7 +100,16 @@ h2 {
   font-weight: bold;
 }
 
-#form.bitmap input[type="search"] {
-  width: 300px;
+#bitmapForm input[type="text"] {
+  width: 650px;
 }
 
+
+.traitValues {
+  font-weight: bold;
+  background-color: #EEE820;
+  padding: 10px;
+  width: 60%;
+  border: 1px solid black;
+  border-radius: 10px;
+}

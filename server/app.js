@@ -2,10 +2,33 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bitmaps from "./routers/bitmap.js";
+import axios from "axios";
 
 dotenv.config();
 
 const app = express();
+
+app.use(express.json());
+
+app.get("/api/bitmap/:token", async (req, res) => {
+  const { token } = req.params;
+  const apiUrl = `https://api-mainnet.magiceden.dev/v2/ord/btc/activities?collectionSymbol=bitmap&kind=transfer&tokenId=${token}`;
+
+  try {
+    const response = await axios.get(apiUrl, {
+      headers: {
+        Authorization: `Bearer ${process.env.MAGICEDEN_API}`
+      }
+    });
+
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error!", error);
+    res
+      .status(error.response ? error.response.status : 500)
+      .json({ error: "Internal Server Error" });
+  }
+});
 
 mongoose.connect(process.env.MONGODB, {
   // Configuration options to remove deprecation warnings, just include them to remove clutter
@@ -20,8 +43,6 @@ db.once(
   "open",
   console.log.bind(console, "Successfully opened connection to Mongo!")
 );
-
-const PORT = process.env.PORT || 4040;
 
 // CORS Middleware
 const cors = (req, res, next) => {
