@@ -24,18 +24,18 @@ function afterRender(state) {
 
   if (state.view === "Bitmap") {
     // Add an event handler for the submit button on the form
-    document.querySelector("form").addEventListener("submit", event => {
+    document.getElementById("bitmapForm").addEventListener("submit", event => {
       event.preventDefault();
 
       // Get the form element
-      const inputOne = event.target.elements.tokenId.value;
-      console.log("Input One", inputOne);
+      const inscriptionLookup = event.target.elements.bitmapInput.value;
+      console.log("This is the input Inscription ID", inscriptionLookup);
       // Create a request body object to send to the API
 
       axios
-        // Make a POST request to the API to look up Bitmap attributes
+        // Make a GET request to the API to look up Bitmap attributes
         // https://api-mainnet.magiceden.dev/v2/ord/btc/activities?collectionSymbol=bitmap&kind=transfer&tokenId=28c7b6e206d74172182f1bf5dc0ddfeb4e3d6fc3996964a4f973e6c21fac943bi0
-        .get(`${process.env.BITCORNS_API_URL}/bitmaps/${inputOne}`)
+        .get(`${process.env.BITCORNS_API_URL}/bitmaps/${inscriptionLookup}`)
         .then(response => {
           //  Then use returned attributes to get Magic Eden floor price for each trait
           console.log(response.data);
