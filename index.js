@@ -38,7 +38,7 @@ function afterRender(state) {
         .get(`${process.env.BITCORNS_API_URL}/bitmaps/${inscriptionLookup}`)
         .then(response => {
           //  Then use returned attributes to get Magic Eden floor price for each trait
-          console.log(response.data);
+          console.log("bitmapResponse", response.data);
           store.Bitmap.bitmap.push(response.data);
           router.navigate("/Bitmap");
         })
