@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import html from "html-literal";
-import bitcorn004 from "../../assets/004.png";
+import bitcorn001 from "../../assets/001.png";
 
 export default () => html`
 <section>
   <div class="main-content">
-<h1>Bitcorns</h1>
-<img src="${bitcorn004}" class="bitcorn" alt="" />
+<h1>About Us</h1>
+<img src="${bitcorn001}" class="bitcorn" alt="" />
 <h2>Our Vision</h2>
 <p>We believe that Bitcoin and Ordinals should (and can) be fun and profitable while fostering a
   strong community where holders help one another instead of creating a PvP environment.
