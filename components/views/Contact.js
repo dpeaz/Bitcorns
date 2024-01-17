@@ -24,12 +24,12 @@ export default () => html`
       method="post"
     >
       <fieldset id="fs-frm-inputs">
-        <label for="project">Project</label><br />
+        <label for="name">Name</label><br />
         <input
           type="text"
           name="name"
-          id="project"
-          placeholder="Project you're representing"
+          id="name"
+          placeholder="username"
           required=""
         /><br />
         <label for="email-address">Email Address</label><br />
@@ -45,7 +45,7 @@ export default () => html`
           rows="5"
           name="message"
           id="message"
-          placeholder="What is your collaboration proposal?"
+          placeholder="Drop us a message!"
           required=""
         ></textarea
         ><br />

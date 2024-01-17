@@ -48,6 +48,51 @@ function afterRender(state) {
         });
     });
   }
+  if (state.view === "Collab") {
+    // Add an event handler for the submit button on the form
+    document.querySelector("form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      // Get the form element
+      const collab = event.target;
+      console.log("Input Element List", collab);
+
+      // Create an empty array to hold the toppings
+      const contact = [];
+
+      // Iterate over the toppings array
+
+      for (let input of collab.elements) {
+        // Check if the input is a checkbox and if it is checked
+        if (input.type === "checkbox" && input.checked) {
+          // Add the value to the contact array
+          contact.push(input.value);
+        }
+      }
+
+      // Create a request body object to send to the API
+      const requestData = {
+        project: collab.elements.project.value,
+        representative: collab.elements.representative.value,
+        contact: contact
+      };
+      // Log the request body to the console
+      console.log("request Body", requestData);
+
+      axios
+        // Make a POST request to the API to create a new pizza
+        .post(`${process.env.BITCORNS_API_URL}/collabs`, requestData)
+        .then(response => {
+          //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+          store.Pending.collab.push(response.data);
+          router.navigate("/Pending");
+        })
+        // If there is an error log it to the console
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
+  }
 }
 
 router.hooks({
