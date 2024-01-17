@@ -7,12 +7,6 @@ export default () => html`
   <div class="main-content">
 <h1>Bitcorns</h1>
 <img src="${bitcorn004}" class="bitcorn" alt="" />
-<h2>About Us</h2>
-<p>Bitcorns are 100 pixelated profile pictures inscribed as data on the bitcoin blockchain. Bitcorns
-  are among the first ever inscriptions on bitcoin, inscribed in the 39k-47k range. As of today,
-  there are over 45 million inscriptions on the bitcoin blockchain. The cheapest Bitcorn on the
-  market today is for sale for .032 bitcoin, or approximately $1,300 USD.
-</p>
 <h2>Our Vision</h2>
 <p>We believe that Bitcoin and Ordinals should (and can) be fun and profitable while fostering a
   strong community where holders help one another instead of creating a PvP environment.

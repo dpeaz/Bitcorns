@@ -19,7 +19,7 @@ export default () => html`
         />
         <button type="submit" id="bitmapSubmit">Submit</button>
       </form>
-      <img src="bitmap.webp" height="250px" width="250px" />
+      <!-- <img src="bitmap.webp" height="250px" width="250px" /> -->
       <table class="traitValues">
         <tr>
           <th>Attribute</th>
