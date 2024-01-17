@@ -28,6 +28,11 @@ h1 {
 h2 {
   display: flex;
   justify-content: flex-start;
+  color: #EEE820;
+  background-color: #19381F;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
   .navbar a {
@@ -134,5 +139,6 @@ th {
 }
 
 p.collabText {
-  text-align: center;
+  text-align: left;
+  width: 15%;
 }

@@ -14,8 +14,7 @@ export default () => html`
     </div>
 
     <p class="collabText">
-      If you are interested in collaboration opportunities, please submit your
-      request below:
+      Drop us a message:
     </p>
     <form
       id="fs-frm"
