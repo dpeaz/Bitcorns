@@ -1,23 +1,26 @@
-/* eslint-disable prettier/prettier */
-
 import html from "html-literal";
-import bitcorn001 from "../../assets/001.png";
+import bitcorn004 from "../../assets/004.png";
 
 export default () => html`
-<section>
-<div class="main-content">
-<h1>Bitcorns</h1>
-<img src="${bitcorn001}" alt="" class="bitcorn" width="250" height="250" />
-<h2>Our Vision</h2>
-<p>We believe that Bitcoin and Ordinals should (and can) be fun and profitable while fostering a
-  strong community where holders help one another instead of creating a PvP environment.
-<br><br>
-    We aim to achieve fun through creating funny, engaging content as well as producing sporadic,
-    meaningful Ordinals collections and community events.  We believe that remaining active daily
-    in the community, providing value, and treating people with respect and dignity is the best way
-    to build a strong community. While cryptocurrency is an extremely volatile market, one of our
-    primary goals is to generate sustainable revenue for the project in order to provide the best
-    opportunity for our holders to be profitable by investing in our project.
-  </p>
-</div>
-</section>`;
+  <section>
+    <div class="main-content">
+      <h1>Bitcorns</h1>
+      <img
+        src="${bitcorn004}"
+        alt=""
+        class="bitcorn"
+        width="250"
+        height="250"
+      />
+      <p>
+        Launched in February 2023, Bitcorns is an OG Bitcoin Ordinals collection
+        inscribed from 39k-47k. How early were we? There have now been over 50
+        million Ordinals inscribed on the Bitcoin blockchain! The collection was
+        built on originality, memes, Bitcoin culture, and a strong community. As
+        our earliest supporters, Bitcorns holders will always have access to the
+        highest level of benefits to include airdrops, allowlists, giveaways,
+        contests, and alpha.
+      </p>
+    </div>
+  </section>
+`;

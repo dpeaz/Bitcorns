@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bitmaps from "./routers/bitmap.js";
 import axios from "axios";
+import pendings from "./routers/pendings.js";
 
 dotenv.config();
 
@@ -44,6 +45,8 @@ db.once(
   console.log.bind(console, "Successfully opened connection to Mongo!")
 );
 
+const PORT = process.env.PORT || 4040;
+
 // CORS Middleware
 const cors = (req, res, next) => {
   res.setHeader(
@@ -77,5 +80,6 @@ app.get("/status", (request, response) => {
 });
 
 app.use("/bitmaps", bitmaps);
+app.use("/pending", pendings);
 
 app.listen(4040, () => console.log("Listening on port 4040"));

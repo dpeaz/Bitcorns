@@ -17,9 +17,22 @@ body {
   border-radius: 10px;
   }
 
+h1 {
+  color: #EEE820;
+  background-color: #19381F;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
 h2 {
   display: flex;
   justify-content: flex-start;
+  color: #EEE820;
+  background-color: #19381F;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
   .navbar a {
@@ -79,7 +92,7 @@ h2 {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 70px;
   gap: 5px;
 }
 
@@ -102,6 +115,7 @@ h2 {
 
 #bitmapForm input[type="text"] {
   width: 650px;
+  margin-bottom: 20px;
 }
 
 
@@ -112,4 +126,19 @@ h2 {
   width: 60%;
   border: 1px solid black;
   border-radius: 10px;
+}
+
+th {
+  text-align: left;
+  text-decoration: underline;
+}
+
+#fs-frm {
+  align-items: center;
+  justify-content: center;
+}
+
+p.collabText {
+  text-align: left;
+  width: 15%;
 }
