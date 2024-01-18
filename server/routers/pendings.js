@@ -1,13 +1,13 @@
 import { Router } from "express";
-import Collab from "../models/Collab.js";
+import Pending from "../models/Pending.js";
 
 const router = Router();
 
 router.post("/", async (request, response) => {
   try {
-    const newCollab = new Collab(request.body);
+    const newPending = new Pending(request.body);
 
-    const data = await newCollab.save();
+    const data = await newPending.save();
 
     response.json(data);
   } catch (error) {

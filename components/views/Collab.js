@@ -4,7 +4,7 @@ export default () => html`
   <section id="collab">
     <div class="main-content">
       <h1>Collaboration Request</h1>
-      <form id="collab" method="POST" action="">
+      <form id="collabForm" method="POST" action="">
         <div>
           <label for="project">Project:</label>
           <input

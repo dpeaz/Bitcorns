@@ -50,7 +50,7 @@ function afterRender(state) {
   }
   if (state.view === "Collab") {
     // Add an event handler for the submit button on the form
-    document.querySelector("form").addEventListener("submit", event => {
+    document.getElementById("collabForm").addEventListener("submit", event => {
       event.preventDefault();
 
       // Get the form element
@@ -81,7 +81,7 @@ function afterRender(state) {
 
       axios
         // Make a POST request to the API to create a new pizza
-        .post(`${process.env.BITCORNS_API_URL}/collabs`, requestData)
+        .post(`${process.env.BITCORNS_API_URL}/pending`, requestData)
         .then(response => {
           //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Pending.collab.push(response.data);

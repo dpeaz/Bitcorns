@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const collabSchema = new mongoose.Schema({
+const pendingSchema = new mongoose.Schema({
   project: {
     type: String,
     required: true
@@ -12,6 +12,6 @@ const collabSchema = new mongoose.Schema({
   response: [String]
 });
 
-const Collab = mongoose.model("Collab", collabSchema);
+const Pending = mongoose.model("Pending", pendingSchema);
 
-export default Collab;
+export default Pending;
