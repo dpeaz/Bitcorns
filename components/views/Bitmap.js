@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default () => html`
+export default state => html`
   <section>
     <div class="main-content">
       <h1>Bitmap Floor Price Check</h1>
@@ -25,7 +25,26 @@ export default () => html`
           <th>Attribute</th>
           <th>Value</th>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          ${state.bitmap
+            .map(
+              bitResponse => html`
+                ${Object.entries(
+                  bitResponse.data.activities[0].token.meta.attributes
+                )
+                  .map(
+                    ([attribute, value]) => html`
+                      <tr>
+                        <td>${attribute}</td>
+                        <td>${value}</td>
+                      </tr>
+                    `
+                  )
+                  .join("")}
+              `
+            )
+            .join("")}
+        </tbody>
       </table>
     </div>
   </section>
