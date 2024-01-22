@@ -39,7 +39,7 @@ function afterRender(state) {
         .then(response => {
           //  Then use returned attributes to get Magic Eden floor price for each trait
           console.log("bitmapResponse", response.data);
-          store.Bitmap.bitmap.push(response.data);
+          store.Bitmap.bitmap = response.data;
           router.navigate("/Bitmap");
         })
         // If there is an error log it to the console
@@ -101,7 +101,38 @@ router.hooks({
       params && params.data && params.data.view
         ? capitalize(params.data.view)
         : "Home";
-    done();
+
+    // Add a switch case statement to handle multiple routes
+    switch (view) {
+      // case "Bitmap":
+      //   axios
+      //     .get(`${process.env.BITCORNS_API_URL}/Bitmap/`)
+      //     .then(response => {
+      //       //  Then use returned attributes to get Magic Eden floor price for each trait
+      //       console.log("bitmapResponse", response.data);
+      //       store.Bitmap.bitmap.push(response.data);
+      //       done();
+      //     })
+      //     .catch(err => {
+      //       console.log(err);
+      //       done();
+      //     });
+      //   break;
+      case "Pending":
+        axios
+          .get(`${process.env.BITCORNS_API_URL}/pending`)
+          .then(response => {
+            store.Pending.collab = response.data;
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
+            done();
+          });
+        break;
+      default:
+        done();
+    }
   },
   already: params => {
     const view =
