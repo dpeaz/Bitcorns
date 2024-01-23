@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bitmaps from "./routers/bitmap.js";
-import axios from "axios";
 import pendings from "./routers/pendings.js";
 
 dotenv.config();
@@ -60,4 +59,4 @@ app.get("/status", (request, response) => {
 app.use("/bitmaps", bitmaps);
 app.use("/pending", pendings);
 
-app.listen(4040, () => console.log("Listening on port 4040"));
+app.listen(PORT, () => console.log("Listening on port 4040"));
