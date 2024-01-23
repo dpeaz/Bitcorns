@@ -57,10 +57,7 @@ function afterRender(state) {
       const collab = event.target;
       console.log("Input Element List", collab);
 
-      // Create an empty array to hold the toppings
       const contact = [];
-
-      // Iterate over the toppings array
 
       for (let input of collab.elements) {
         // Check if the input is a checkbox and if it is checked
@@ -80,10 +77,8 @@ function afterRender(state) {
       console.log("request Body", requestData);
 
       axios
-        // Make a POST request to the API to create a new pizza
         .post(`${process.env.BITCORNS_API_URL}/pending`, requestData)
         .then(response => {
-          //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Pending.collab.push(response.data);
           router.navigate("/Pending");
         })
