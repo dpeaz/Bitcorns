@@ -5,7 +5,6 @@ export default () => html`
     <div class="main-content">
       <h1>Contact Us</h1>
       <br />
-      <a href="https://bitcorns.xyz">Official Website</a><br />
       <a href="https://twitter.com/ordinalbitcorns">Twitter</a>
       <br /><br />
       <h2>Founder</h2>
